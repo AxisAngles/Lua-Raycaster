@@ -4,6 +4,10 @@
 --I don't know how good this is compared to other people's methods, but I like to think I can be pretty smart sometimes.
 --Should be fast enough for most cases. See the format.txt file for how I do stuff.
 
+--Basically, how you use it is you have an array of all your objects.
+--Then you partition those objects and you get a partition from it.
+--Then you can call one of the raycast functions, raycast,raycasttest,raycastall with the partition.
+
 --RAYCASTING FUNCTIONS
 local castfuncs={}
 
@@ -289,8 +293,7 @@ end
 
 
 --RAYCASTING SYSTEM
-local nrays=0
-local raycast,raycasttest,raycastall,recursiveraycast do
+local raycast,raycasttest,raycastall do
 	local sort=table.sort
 	local inf=1/0
 
@@ -302,7 +305,6 @@ local raycast,raycasttest,raycastall,recursiveraycast do
 	end
 
 	function raycast(mainpar,ox,oy,oz,dx,dy,dz,d,ign)
-		nrays=nrays+1
 		d=d or inf
 		ign=ign or defign
 		local hit,ix,iy,iz,nx,ny,nz
@@ -334,7 +336,6 @@ local raycast,raycasttest,raycastall,recursiveraycast do
 	end
 
 	function raycasttest(mainpar,ox,oy,oz,dx,dy,dz,d,ign)
-		nrays=nrays+1
 		d=d or inf
 		ign=ign or defign
 		local n,t=0,1
@@ -363,7 +364,6 @@ local raycast,raycasttest,raycastall,recursiveraycast do
 	end
 
 	function raycastall(mainpar,ox,oy,oz,dx,dy,dz,d,ign)
-		nrays=nrays+1
 		d=d or inf
 		ign=ign or defign
 		local n,t=0,1
