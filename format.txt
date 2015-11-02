@@ -1,0 +1,60 @@
+Format
+
+set={
+	camera={
+		px;py;pz;	--Position
+		xx;xy;xz;	--unit right direction
+		yx;yy;yz;	--unit top direction
+		zx;zy;zz;	--unit back direction
+		plane;		--Plane height 0<plane<inf
+	};
+	lighting={
+		points={
+			{
+				ox;oy;oz;	--origin
+				dx;dy;dz;	--unit direction
+				cr;cg;cb;	--color 0<color<1
+				cos;		--cosine of the angle of the light
+			},
+			...
+		};
+		directs={
+			{
+				dx;dy;dz;	--unit direction
+				cr;cg;cb;	--color 0<color<1
+			},
+			...
+		};
+	};
+	geom={
+		{
+			type="block";	--type
+			px;py;pz;		--Position
+			xx;xy;xz;		--unit right direction
+			yx;yy;yz;		--unit top direction
+			zx;zy;zz;		--unit back direction
+			sx;sy;sz;		--size measured from center
+			cr;cg;cb;		--color 0<color<1
+			reflect;		--reflectance
+			trans;			--transparency
+		},
+		{
+			type="sphere";	--type
+			px;py;pz;		--Position
+			r;				--radius
+			cr;cg;cb;		--color 0<color<1
+			reflect;		--reflectance
+			trans;			--transparency
+		},
+		{--not yet supported
+			type="cylinder";--type
+			px;py;pz;		--Position
+			cx;cy;cz		--axis
+			r;h;			--radius,height measured from center
+			cr;cg;cb;		--color 0<color<1
+			reflect;		--reflectance
+			trans;			--transparency
+		},
+		...
+	};
+}
